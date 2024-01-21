@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 import {IERC20} from "@aave/core-v3/contracts/dependencies/openzeppelin/contracts/IERC20.sol";
@@ -21,6 +21,10 @@ contract Facilitator {
 
     function mintGhoToken(address to, uint256 amount) external {
         ghoToken.mint(to, amount);
+    }
+
+    function approveGhoToken(uint256 amount) external {
+        ghoToken.approve(address(this), amount);
     }
 
     function depositFunds(
