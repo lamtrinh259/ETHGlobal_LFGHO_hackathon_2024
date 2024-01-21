@@ -13,12 +13,14 @@ import {
   getDefaultConfig,
 } from "connectkit";
 
+const chains = [sepolia];
+
 const config = createConfig(
   getDefaultConfig({
     // Required API Keys
     alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY, // or infuraId
     walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
-
+    chains,
     appName: "GHOmium Assets",
   })
 );

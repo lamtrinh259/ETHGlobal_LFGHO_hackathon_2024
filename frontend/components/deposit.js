@@ -51,7 +51,7 @@ export default function Deposit() {
     if (!withdrawTab) {
       setWithdrawTab(true);
       setDepositTab(false);
-      const assetIds = await getAssetIds(address, signer);
+      // const assetIds = await getAssetIds(address, signer);
       setAssetIds(assetIds);
       getAssets(assetIds, signer);
     }
@@ -64,10 +64,11 @@ export default function Deposit() {
     }
   };
 
-  const getAssetIds = async (address) => {
-    const assetIds = await contract.getPositionIdsForAddress(address);
-    return assetIds;
-  };
+  // N/A function
+  // const getAssetIds = async (address) => {
+  //   const assetIds = await contract.withdrawFunds(address);
+  //   return assetIds;
+  // };
 
   // unused function
   // const calcDaysRemaining = (unlockDate) => {
