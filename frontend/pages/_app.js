@@ -1,6 +1,27 @@
 import "@/styles/globals.css";
-import { configureChains, sepolia, WagmiConfig, createClient } from "wagmi";
+import {
+  configureChains,
+  sepolia,
+  WagmiConfig,
+  createClient,
+  createConfig,
+} from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
+import {
+  ConnectKitProvider,
+  ConnectKitButton,
+  getDefaultConfig,
+} from "connectkit";
+
+const config = createConfig(
+  getDefaultConfig({
+    // Required API Keys
+    alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY, // or infuraId
+    walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID,
+
+    appName: "GHOmium Assets",
+  })
+);
 
 export default function App({ Component, pageProps }) {
   const { provider, webSocketProvider } = configureChains(
@@ -8,14 +29,11 @@ export default function App({ Component, pageProps }) {
     [publicProvider()]
   );
 
-  const client = createClient({
-    autoConnect: true,
-    provider,
-    webSocketProvider,
-  });
   return (
-    <WagmiConfig client={client}>
-      <Component {...pageProps} />
+    <WagmiConfig config={config}>
+      <ConnectKitProvider theme="midnight">
+        <Component {...pageProps} />
+      </ConnectKitProvider>
     </WagmiConfig>
   );
 }
