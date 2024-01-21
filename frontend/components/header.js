@@ -24,7 +24,8 @@ export default function Header() {
     <section className={styles.header}>
       <section className={styles.header__logoSection}>
         <h1 className={styles.title}>GHOmium Assets</h1>
-        <Beans fontSize="20px" className={styles.beans} />
+        <img src="/Logo_GHOmium.jpeg" alt="GHOmium Logo" className={styles.logo}
+        style={{ width: "100px", height: "auto" }} />
       </section>
 
       <section className={styles.header_btn}>
