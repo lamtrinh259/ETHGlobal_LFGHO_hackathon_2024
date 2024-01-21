@@ -11,14 +11,11 @@ contract Facilitator {
 
     constructor(address _ghoTokenAddress) {
         ghoToken = IGhoToken(_ghoTokenAddress);
+        ghoToken.addFacilitator(address(this), "TestF", 1_000_000e18);
     }
 
     function mintGhoToken(address to, uint256 amount) external {
         ghoToken.mint(to, amount);
-    }
-
-    function initFacilitator() external {
-        ghoToken.addFacilitator(address(this), "TestF", 1_000_000e18);
     }
 
     function depositFunds(
@@ -26,7 +23,7 @@ contract Facilitator {
         uint256 borrowAmount,
         address to
     ) external {
-        require(depositAmount > borrowAmount * 1.5, "Not enough collateral");
+        require(depositAmount * 2 >= borrowAmount * 3, "Not enough collateral");
         ghoToken.mint(to, borrowAmount);
     }
 }
