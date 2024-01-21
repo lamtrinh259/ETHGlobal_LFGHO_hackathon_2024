@@ -109,10 +109,10 @@
   cursor: pointer;
 }
 
-/* .stakeUnstakeTab > section:hover,
-.stakeUnstakeTab > section.active {
+/* .depositWithdrawTab > section:hover,
+.depositWithdrawTab > section.active {
   background-color: rgba(238, 174, 202, 0.179);
-  color: #fff;
+  color: #fff;ß
 } */
 
 .depositType {
