@@ -147,7 +147,7 @@ export default function Deposit() {
                   <span>{(walletBalance / 10 ** 18).toLocaleString()}</span>
                 </p>
                 {/* hard coded number, need to modify */}
-                <p>Exchange Rate: 1.03582967</p>
+                <p>Rate GMA:GHO is 1.03582967</p>
                 {/* <p>Transaction Cost</p> */}
               </section>
               <button
@@ -203,7 +203,7 @@ export default function Deposit() {
             <h2>Locked Deposit</h2>
             <section className={styles.lockedDeposit}>
               <span>Locked 30 days</span>
-              <span className={styles.lockedDepositAPY}>8% API</span>
+              <span className={styles.lockedDepositAPY}>7% API</span>
               <input
                 className={styles.inputField}
                 type="number"
