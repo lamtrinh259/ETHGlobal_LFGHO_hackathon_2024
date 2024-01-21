@@ -27,7 +27,8 @@ export default function Deposit() {
   useEffect(() => {
     async function getWalletBalance() {
       await axios
-        .get("http://localhost:5001/getwalletbalance", { // this is with the backend
+        .get("http://localhost:5001/getwalletbalance", {
+          // this is with the backend
           params: { address },
         })
         .then((response) => {
@@ -94,7 +95,8 @@ export default function Deposit() {
     });
   };
 
-  const depositEther = async () => { // no params because there's no deposit length
+  const depositEther = async () => {
+    // no params because there's no deposit length
     const wei = toWei(String(amount));
     const data = { value: wei };
     await contract.depositEther(data);
