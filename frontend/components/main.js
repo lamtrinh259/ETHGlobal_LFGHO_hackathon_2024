@@ -5,7 +5,7 @@ import DepositData from "./depositData.js";
 export default function Main() {
   return (
     <section className={styles.container}>
-      {/* <Deposit /> */}
+      <Deposit />
       <DepositData />
     </section>
   );

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
-import { useAccount, useContract, useProvider, useSigner } from "wagmi";
+import { useAccount, useConnect, useSignMessage, useContractRead } from "wagmi";
 import { ethers } from "ethers";
 
 import { CONTRACT_ADDRESS, ABI } from "../contracts/index.js";
 
 export default function Deposit() {
   const { isConnected, address } = useAccount();
-  const provider = useProvider();
-  const { data: signer } = useSigner();
+  const provider = useConnect();
+  const { data: signer } = useSignMessage();
 
   const [walletBalance, setWalletBalance] = useState("");
 
@@ -41,7 +41,7 @@ export default function Deposit() {
     }
   }, [isConnected]);
 
-  const contract = useContract({
+  const contract = useContractRead({
     address: CONTRACT_ADDRESS,
     abi: ABI,
     signerOrProvider: signer || provider,
