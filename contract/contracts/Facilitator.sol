@@ -17,7 +17,16 @@ contract Facilitator {
         ghoToken.mint(to, amount);
     }
 
-    function testFacilitator() external {
+    function initFacilitator() external {
         ghoToken.addFacilitator(address(this), "TestF", 1_000_000e18);
+    }
+
+    function depositFunds(
+        uint256 depositAmount,
+        uint256 borrowAmount,
+        address to
+    ) external {
+        require(depositAmount > borrowAmount * 1.5, "Not enough collateral");
+        ghoToken.mint(to, borrowAmount);
     }
 }
